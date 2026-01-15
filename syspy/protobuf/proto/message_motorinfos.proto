@@ -1,0 +1,37 @@
+syntax = "proto3";
+package rbk.protocol;
+import "message_header.proto";
+
+message Message_MotorInfo {
+	enum MotorType{
+		WALK = 0;
+		STEER = 1;
+		SPIN = 2;
+		LINEAR = 3;
+		ROTATION = 4;
+		DO = 5;
+	}
+	Message_Header header = 1;
+	string motor_name = 2;
+	uint32 can_router = 3;
+	uint32 can_id = 4;
+	float position = 5;	//m
+	float speed = 6;		//m/s
+	float current = 7;		//A
+	float voltage = 8;		//V
+	bool stop = 9;
+	uint32 error_code = 10;
+	bool err = 11;
+	bool emc = 12;
+	float temperature = 13; //deg
+	int32 encoder = 14; // cnt
+	MotorType type = 15;
+	bool passive = 16;
+	bool calib = 17;
+	bool follow_err = 18;
+	float raw_position = 19;// steer angle without .cp value
+}
+
+message Message_MotorInfos {
+	repeated Message_MotorInfo motor_info = 1;
+}

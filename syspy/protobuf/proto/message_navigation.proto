@@ -1,0 +1,114 @@
+syntax = "proto3";
+package rbk.protocol;
+import "message_header.proto";
+
+message Message_NavStatus {
+	bool blocked = 1;
+}
+
+message Message_MotorCmd{
+	enum MotorType{
+		WALK = 0;
+		STEER = 1;
+		SPIN = 2;
+		LINEAR = 3;
+		ROTATION = 4;
+		DO = 5;
+	}
+	enum IOCmd{
+		CMD_NONE = 0;
+		TO_POSITIVE = 1;
+		TO_NEGATIVE = 2;
+		STOP = 3;
+	}
+	enum MoveType{
+		NORMAL = 0;
+		ACC = 1;
+		DEC = 2;
+	}
+	string motor_name = 1;
+	uint32 can_router = 2;
+	uint32 can_id = 3;
+	double value = 4;
+	IOCmd io_cmd = 5;
+	MotorType type = 6;
+	MoveType move_type = 7;
+}
+
+message Message_NavSpeed {
+	double x = 1;
+	double y = 2;
+	double rotate = 3;
+	Message_Header header = 4;
+	repeated Message_MotorCmd motor_cmd = 5;
+	bool is2move = 6;	//准备动的标志位
+}
+
+message Message_ManualSpeed {
+	double x = 1;
+	double y = 2;
+	double rotate = 3;
+    repeated double steer_angles = 4;
+}
+
+message Message_NavPose {
+	double x = 1;
+	double y = 2;
+	double angle = 3;
+}
+
+message Message_NavTopoPose {
+	int32 id = 1;
+	double angle = 3;
+}
+
+message Message_NavState{
+	Message_NavPose  pose  = 1;
+	Message_NavSpeed speed = 2;
+	double	radius = 3;
+}
+
+message Message_NavPath {
+	repeated Message_NavState states = 1;
+	bool find_path = 2;
+}
+
+message Message_NavTarget {
+	enum MODE{
+		NULL_MODE = 0;
+		FORWARD_MODE = 1;
+		BACK_MODE = 2;
+	}
+	double x = 1;
+	double y = 2;
+	double angle = 3;
+	int32 run_mode = 4;
+	int32 topo_target_id = 5;
+}
+
+message Message_NavInfo {
+	enum NavMode{
+		NullNavMode = 0;
+		TaskTargetReachMode = 1;
+		SpeedControlMode = 2;
+		TopoPosReachMode = 3;
+	}
+	enum NavCmd{
+		NULLNavCmd = 0;
+		TaskCancel = 1;
+		TaskSuspend = 2;
+		TaskResume = 3;
+		TaskBegin = 4;
+	}
+	
+	int32 nav_mode = 1;
+	int32 nav_cmd = 2;
+	double nav_target_x = 3;
+	double nav_target_y = 4;
+	double nav_target_theta = 5;
+	double nav_target_mode = 6;
+	double nav_speed_x = 7;
+	double nav_speed_y = 8;
+	double nav_speed_w = 9;
+	int32 topo_target_id = 10;
+}

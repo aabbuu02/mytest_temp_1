@@ -1,0 +1,10 @@
+{
+    "operation": "Script",
+    "script_args": {
+        "operation": "load",
+        "truckLoad": 1,
+        "use360": 1,
+        "clearGBData": 1
+    },
+    "script_name": "TKC_abuedited.py"
+}

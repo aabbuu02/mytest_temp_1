@@ -1,0 +1,230 @@
+syntax = "proto3";
+package rbk.protocol;
+import "wrappers_aarch64.proto";
+import "message_odometer_aarch64.proto";
+import "message_motorinfos_aarch64.proto";
+
+message Message_MoveParam {
+    string key = 1;
+    oneof oneof_value {
+        string string_value = 2;
+        bool bool_value = 3;
+        int32 int32_value = 4;
+        uint32 uint32_value = 5;
+        int64 int64_value = 6;
+        uint64 uint64_value = 7;
+        float float_value = 8;
+        double double_value = 9;
+        bytes bytes_value = 10;
+    }
+}
+
+message Message_MoveTask {
+    string skill_name = 1;
+    google.protobuf.DoubleValue target_x = 2;
+    google.protobuf.DoubleValue target_y = 3;
+    google.protobuf.DoubleValue target_angle = 4;
+    google.protobuf.StringValue target_name = 5;
+    google.protobuf.DoubleValue reach_dist = 6;
+    google.protobuf.DoubleValue reach_angle = 7;
+    google.protobuf.StringValue reach_method = 8;
+    google.protobuf.DoubleValue reach_vel_x = 9;
+    google.protobuf.DoubleValue reach_vel_y = 10;
+    google.protobuf.DoubleValue reach_vel_w = 11;
+    google.protobuf.DoubleValue speed_x = 12;
+    google.protobuf.DoubleValue speed_y = 13;
+    google.protobuf.DoubleValue speed_w = 14;
+    google.protobuf.DoubleValue max_speed = 15;
+    google.protobuf.DoubleValue max_acc = 16;
+    google.protobuf.DoubleValue max_rot = 17;
+    google.protobuf.DoubleValue max_rot_acc = 18;
+    google.protobuf.DoubleValue slowdown_dist = 19;
+    google.protobuf.DoubleValue block_dist = 20;
+    google.protobuf.DoubleValue move_dist = 21;
+    google.protobuf.DoubleValue move_angle = 22;
+    google.protobuf.DoubleValue move_time = 23;
+    repeated Message_MoveParam params = 24;
+    google.protobuf.StringValue task_id = 25;
+    google.protobuf.DoubleValue max_dec = 26;
+    google.protobuf.DoubleValue max_rot_dec = 27;
+    google.protobuf.DoubleValue obs_stop_dist = 28;
+    google.protobuf.DoubleValue obs_dec_dist = 29;
+    google.protobuf.DoubleValue obs_dec_speed = 30;
+    google.protobuf.DoubleValue obs_expansion = 31;
+    google.protobuf.DoubleValue dec_obs_expansion = 32;
+    google.protobuf.StringValue source_name = 40;
+}
+
+message Message_MoveTaskList
+{
+    repeated Message_MoveTask move_task_list = 1;
+}
+
+message Message_MovePolygonPoint{
+    double x = 1;
+    double y = 2;
+}
+
+message Message_MovePolygon{
+    repeated Message_MovePolygonPoint point = 1;
+    string name = 2;
+}
+
+message Message_RobotShape{
+    uint32 shape = 1;
+    double head = 2;
+    double tail = 3;
+    double width = 4;
+    double radius = 5;
+}
+
+message Message_NearestObs {
+    double x = 1;
+    double y = 2;
+}
+
+message Message_Container {
+    string container_name = 1;
+    string goods_id = 2;
+    bool has_goods = 3;
+    string desc = 4;
+}
+
+message Message_MoveStatus {
+    enum Reason {
+        Ultrasonic = 0;
+        Laser = 1;
+        Fallingdown = 2;
+        Collision = 3;
+        Infrared = 4;
+        Lock = 5;
+        APIObstacle = 6;
+        VirtualPoint = 7;
+        DepthCamera = 8;
+        DistanceNode = 9;
+        DiUltrasonic = 10;
+    }
+    enum TaskStatus {
+        StatusNone = 0;
+        Waiting = 1;
+        Running = 2;
+        Suspended = 3;
+        Completed = 4;
+        Failed = 5;
+        Canceled = 6;
+        OverTime = 7;
+    }
+    enum TaskType {
+        TypeNone = 0;
+        GoPoint = 1;
+        GoPointId = 2;
+        GoId = 3;
+        Patrol = 4;
+        GoIntoShelf = 5;
+        TargetTracking = 6;
+        GoByOdometer = 7;
+        GoAlongMagstripe = 8;
+        Other = 100;
+    }
+    enum RunningStatus {
+        RNone = 0;
+        RRunning = 1;
+        RNearToGoal = 2;
+        RFinished = 3;
+        RFailed = 4;
+    }
+    bool blocked = 1;
+    double block_x = 2;
+    double block_y = 3;
+    Reason block_reason = 4;
+    string target_name = 5;
+    double target_x = 6;
+    double target_y = 7;
+    double target_angle = 8;
+    TaskStatus task_status = 9;
+    TaskType task_type = 10;
+    repeated string area_name = 11;
+    repeated string finished_path_name = 12;
+    repeated string unfinished_path_name = 13;
+    int32 block_id = 14;
+    string task_id = 16;
+    Message_MovePolygon robot_region = 17;
+    Message_MovePolygon goods_region = 18;
+    repeated Message_MovePolygon removed_regions = 19;
+    RunningStatus running_status = 20;
+    string closest_target = 21;
+    double actual_reach_dist = 22;
+    double actual_reach_angle = 23;
+    Message_RobotShape robot_shape = 24;
+    bool slowed = 25;
+    double slow_x = 26;
+    double slow_y = 27;
+    Reason slow_reason = 28;
+    int32 slow_id = 29;
+    Message_MovePolygon stop_path = 31;
+    Message_MovePolygon slow_path = 32;
+    repeated Message_Module modules = 33;
+    repeated Message_MovePolygon advance_regions = 34;
+    string info = 35;
+    double target_dist = 36;
+    Message_TaskStatusPackage task_status_package = 40;
+    string target_label = 41;
+    string closest_label = 42;
+    repeated Message_NearestObs nearest_obstacles = 43;
+    repeated Message_Container containers = 44;
+    double dist2goal = 45;
+}
+
+message Message_TaskStatusInfo {
+    string task_id = 1;                     
+    Message_MoveStatus.TaskType type = 11;
+    Message_MoveStatus.TaskStatus status = 12;
+}
+
+message Message_TaskStatusPackage {
+    repeated Message_TaskStatusInfo task_status_list = 1;   // 任务状态队列
+    string closest_target = 2;      // 最近点
+    string source_name = 3;         // 上个去过的点
+    string target_name = 4;         // 下个要去的点
+    double percentage = 5;          // source_name -> target_name 的 百分比
+    double distance = 6;            // 车离当前线路的最近距离
+    string source_label = 7;       
+    string target_label = 8;
+    string closest_label = 9;
+    string info = 31;               // 提示说明(特殊状态改变可以加一些说明，如faild，可描述具体原因)
+}
+
+message Message_MoveSpeed {
+    double x = 1;
+    double y = 2;
+    double w = 3;
+}
+
+message Message_MovePose {
+    double x = 1;
+    double y = 2;
+    double angle = 3;
+}
+
+message Message_MovePath {
+    string skill_name = 1;
+    repeated Message_MovePose  pose  = 2;
+    repeated Message_MoveSpeed speed = 3;
+    bool find_path = 4;
+}
+
+message Message_Module{
+    enum ModuleStatus {
+        None = 0;
+        Running = 1;
+        Suspended = 2;
+        Completed = 3;
+        Failed = 4;
+        Canceled = 5;
+    }
+    string module_name = 1;
+    ModuleStatus module_status = 2;
+    string action_body = 3;   //现在执行action的json
+    bool cargo_status = 4;
+    repeated Message_MotorInfo motors = 5;
+}

@@ -1,0 +1,377 @@
+{
+  "name": "simple_auto_unload_with_ids",
+  "tasks": [
+    {
+      "taskId": 0,
+      "desc": "Pallet 1 & 2",
+      "actionGroups": [
+        {
+          "actions": [
+            {
+              "actionName": "move_action",
+              "pluginName": "MoveFactory",
+              "params": [
+                {"key": "skill_name", "stringValue": "GotoSpecifiedPose"},
+                {"key": "target_name", "stringValue": "RAMP_ENTRY"}
+              ],
+              "ignoreReturn": false,
+              "overtime": 0,
+              "externalOverId": -1,
+              "needResult": false,
+              "sleepTime": 0,
+              "actionId": 0
+            }
+          ],
+          "actionGroupName": "Go to ramp",
+          "actionGroupId": 0,
+          "checked": true
+        },
+        {
+          "actions": [
+            {
+              "actionName": "move_action",
+              "pluginName": "MoveFactory",
+              "params": [
+                {"key": "skill_name", "stringValue": "Action"},
+                {"key": "body", "stringValue": "{\"operation\":\"Script\",\"script_args\":{\"lift\":0.25},\"script_name\":\"TKC_abuedited.py\"}"}
+              ],
+              "ignoreReturn": false,
+              "overtime": 0,
+              "externalOverId": -1,
+              "needResult": false,
+              "sleepTime": 0,
+              "actionId": 0
+            }
+          ],
+          "actionGroupName": "Lift 0.25",
+          "actionGroupId": 1,
+          "checked": true
+        },
+        {
+          "actions": [
+            {
+              "actionName": "move_action",
+              "pluginName": "MoveFactory",
+              "params": [
+                {"key": "skill_name", "stringValue": "Action"},
+                {"key": "body", "stringValue": "{\"operation\":\"Script\",\"script_args\":{\"operation\":\"load\",\"truckLoad\":1,\"use360\":1},\"script_name\":\"TKC_abuedited.py\"}"}
+              ],
+              "ignoreReturn": false,
+              "overtime": 0,
+              "externalOverId": -1,
+              "needResult": false,
+              "sleepTime": 0,
+              "actionId": 0
+            }
+          ],
+          "actionGroupName": "Auto load pallet 1",
+          "actionGroupId": 2,
+          "checked": true
+        },
+        {
+          "actions": [
+            {
+              "actionName": "move_action",
+              "pluginName": "MoveFactory",
+              "params": [
+                {"key": "skill_name", "stringValue": "GotoSpecifiedPose"},
+                {"key": "target_name", "stringValue": "AP208"}
+              ],
+              "ignoreReturn": false,
+              "overtime": 0,
+              "externalOverId": -1,
+              "needResult": false,
+              "sleepTime": 0,
+              "actionId": 0
+            }
+          ],
+          "actionGroupName": "Go to AP208",
+          "actionGroupId": 3,
+          "checked": true
+        },
+        {
+          "actions": [
+            {
+              "actionName": "move_action",
+              "pluginName": "MoveFactory",
+              "params": [
+                {"key": "skill_name", "stringValue": "Action"},
+                {"key": "body", "stringValue": "{\"id\":\"AP208\",\"operation\":\"Script\",\"script_args\":{\"lift\":0.075,\"operation\":\"unload\"},\"script_name\":\"TKC_abuedited.py\"}"}
+              ],
+              "ignoreReturn": false,
+              "overtime": 0,
+              "externalOverId": -1,
+              "needResult": false,
+              "sleepTime": 0,
+              "actionId": 0
+            }
+          ],
+          "actionGroupName": "Unload at AP208",
+          "actionGroupId": 4,
+          "checked": true
+        },
+        {
+          "actions": [
+            {
+              "actionName": "move_action",
+              "pluginName": "MoveFactory",
+              "params": [
+                {"key": "skill_name", "stringValue": "Action"},
+                {"key": "body", "stringValue": "{\"operation\":\"Script\",\"script_args\":{\"lift\":0.25},\"script_name\":\"TKC_abuedited.py\"}"}
+              ],
+              "ignoreReturn": false,
+              "overtime": 0,
+              "externalOverId": -1,
+              "needResult": false,
+              "sleepTime": 0,
+              "actionId": 0
+            }
+          ],
+          "actionGroupName": "Lift 0.25",
+          "actionGroupId": 5,
+          "checked": true
+        },
+        {
+          "actions": [
+            {
+              "actionName": "move_action",
+              "pluginName": "MoveFactory",
+              "params": [
+                {"key": "skill_name", "stringValue": "Action"},
+                {"key": "body", "stringValue": "{\"operation\":\"Script\",\"script_args\":{\"operation\":\"load\",\"truckLoad\":1,\"use360\":1},\"script_name\":\"TKC_abuedited.py\"}"}
+              ],
+              "ignoreReturn": false,
+              "overtime": 0,
+              "externalOverId": -1,
+              "needResult": false,
+              "sleepTime": 0,
+              "actionId": 0
+            }
+          ],
+          "actionGroupName": "Auto load pallet 2",
+          "actionGroupId": 6,
+          "checked": true
+        },
+        {
+          "actions": [
+            {
+              "actionName": "move_action",
+              "pluginName": "MoveFactory",
+              "params": [
+                {"key": "skill_name", "stringValue": "GotoSpecifiedPose"},
+                {"key": "target_name", "stringValue": "AP211"}
+              ],
+              "ignoreReturn": false,
+              "overtime": 0,
+              "externalOverId": -1,
+              "needResult": false,
+              "sleepTime": 0,
+              "actionId": 0
+            }
+          ],
+          "actionGroupName": "Go to AP211",
+          "actionGroupId": 7,
+          "checked": true
+        },
+        {
+          "actions": [
+            {
+              "actionName": "move_action",
+              "pluginName": "MoveFactory",
+              "params": [
+                {"key": "skill_name", "stringValue": "Action"},
+                {"key": "body", "stringValue": "{\"id\":\"AP211\",\"operation\":\"Script\",\"script_args\":{\"lift\":0.075,\"operation\":\"unload\"},\"script_name\":\"TKC_abuedited.py\"}"}
+              ],
+              "ignoreReturn": false,
+              "overtime": 0,
+              "externalOverId": -1,
+              "needResult": false,
+              "sleepTime": 0,
+              "actionId": 0
+            }
+          ],
+          "actionGroupName": "Unload at AP211",
+          "actionGroupId": 8,
+          "checked": true
+        }
+      ],
+      "checked": true
+    },
+    {
+      "taskId": 1,
+      "desc": "Pallet 3 & 4",
+      "actionGroups": [
+        {
+          "actions": [
+            {
+              "actionName": "move_action",
+              "pluginName": "MoveFactory",
+              "params": [
+                {"key": "skill_name", "stringValue": "Action"},
+                {"key": "body", "stringValue": "{\"operation\":\"Script\",\"script_args\":{\"lift\":0.25},\"script_name\":\"TKC_abuedited.py\"}"}
+              ],
+              "ignoreReturn": false,
+              "overtime": 0,
+              "externalOverId": -1,
+              "needResult": false,
+              "sleepTime": 0,
+              "actionId": 0
+            }
+          ],
+          "actionGroupName": "Lift 0.25",
+          "actionGroupId": 0,
+          "checked": true
+        },
+        {
+          "actions": [
+            {
+              "actionName": "move_action",
+              "pluginName": "MoveFactory",
+              "params": [
+                {"key": "skill_name", "stringValue": "Action"},
+                {"key": "body", "stringValue": "{\"operation\":\"Script\",\"script_args\":{\"operation\":\"load\",\"truckLoad\":1,\"use360\":1},\"script_name\":\"TKC_abuedited.py\"}"}
+              ],
+              "ignoreReturn": false,
+              "overtime": 0,
+              "externalOverId": -1,
+              "needResult": false,
+              "sleepTime": 0,
+              "actionId": 0
+            }
+          ],
+          "actionGroupName": "Auto load pallet 3",
+          "actionGroupId": 1,
+          "checked": true
+        },
+        {
+          "actions": [
+            {
+              "actionName": "move_action",
+              "pluginName": "MoveFactory",
+              "params": [
+                {"key": "skill_name", "stringValue": "GotoSpecifiedPose"},
+                {"key": "target_name", "stringValue": "AP210"}
+              ],
+              "ignoreReturn": false,
+              "overtime": 0,
+              "externalOverId": -1,
+              "needResult": false,
+              "sleepTime": 0,
+              "actionId": 0
+            }
+          ],
+          "actionGroupName": "Go to AP210",
+          "actionGroupId": 2,
+          "checked": true
+        },
+        {
+          "actions": [
+            {
+              "actionName": "move_action",
+              "pluginName": "MoveFactory",
+              "params": [
+                {"key": "skill_name", "stringValue": "Action"},
+                {"key": "body", "stringValue": "{\"id\":\"AP210\",\"operation\":\"Script\",\"script_args\":{\"lift\":0.075,\"operation\":\"unload\"},\"script_name\":\"TKC_abuedited.py\"}"}
+              ],
+              "ignoreReturn": false,
+              "overtime": 0,
+              "externalOverId": -1,
+              "needResult": false,
+              "sleepTime": 0,
+              "actionId": 0
+            }
+          ],
+          "actionGroupName": "Unload at AP210",
+          "actionGroupId": 3,
+          "checked": true
+        },
+        {
+          "actions": [
+            {
+              "actionName": "move_action",
+              "pluginName": "MoveFactory",
+              "params": [
+                {"key": "skill_name", "stringValue": "Action"},
+                {"key": "body", "stringValue": "{\"operation\":\"Script\",\"script_args\":{\"lift\":0.25},\"script_name\":\"TKC_abuedited.py\"}"}
+              ],
+              "ignoreReturn": false,
+              "overtime": 0,
+              "externalOverId": -1,
+              "needResult": false,
+              "sleepTime": 0,
+              "actionId": 0
+            }
+          ],
+          "actionGroupName": "Lift 0.25",
+          "actionGroupId": 4,
+          "checked": true
+        },
+        {
+          "actions": [
+            {
+              "actionName": "move_action",
+              "pluginName": "MoveFactory",
+              "params": [
+                {"key": "skill_name", "stringValue": "Action"},
+                {"key": "body", "stringValue": "{\"operation\":\"Script\",\"script_args\":{\"operation\":\"load\",\"truckLoad\":1,\"use360\":1},\"script_name\":\"TKC_abuedited.py\"}"}
+              ],
+              "ignoreReturn": false,
+              "overtime": 0,
+              "externalOverId": -1,
+              "needResult": false,
+              "sleepTime": 0,
+              "actionId": 0
+            }
+          ],
+          "actionGroupName": "Auto load pallet 4",
+          "actionGroupId": 5,
+          "checked": true
+        },
+        {
+          "actions": [
+            {
+              "actionName": "move_action",
+              "pluginName": "MoveFactory",
+              "params": [
+                {"key": "skill_name", "stringValue": "GotoSpecifiedPose"},
+                {"key": "target_name", "stringValue": "AP209"}
+              ],
+              "ignoreReturn": false,
+              "overtime": 0,
+              "externalOverId": -1,
+              "needResult": false,
+              "sleepTime": 0,
+              "actionId": 0
+            }
+          ],
+          "actionGroupName": "Go to AP209",
+          "actionGroupId": 6,
+          "checked": true
+        },
+        {
+          "actions": [
+            {
+              "actionName": "move_action",
+              "pluginName": "MoveFactory",
+              "params": [
+                {"key": "skill_name", "stringValue": "Action"},
+                {"key": "body", "stringValue": "{\"id\":\"AP209\",\"operation\":\"Script\",\"script_args\":{\"lift\":0.075,\"operation\":\"unload\"},\"script_name\":\"TKC_abuedited.py\"}"}
+              ],
+              "ignoreReturn": false,
+              "overtime": 0,
+              "externalOverId": -1,
+              "needResult": false,
+              "sleepTime": 0,
+              "actionId": 0
+            }
+          ],
+          "actionGroupName": "Unload at AP209",
+          "actionGroupId": 7,
+          "checked": true
+        }
+      ],
+      "checked": true
+    }
+  ],
+  "loop": false
+}

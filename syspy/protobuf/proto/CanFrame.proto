@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+enum DIRE_ENUM{
+	RX = 0;
+	TX = 1;
+}
+
+enum ERROR_TYPE{
+	STUFF_ERROR = 0;
+	FORM_ERROR = 1;
+	ACKNOWLEDGEMENT_ERROR = 2;
+	BIT_RECESSIVE_ERROR = 3;
+	BIT_DOMINANT_ERROR = 4;
+	CRC_ERROR = 5;
+}
+
+message CanFrame {
+	uint32 ID = 1;
+	bool Extended = 2;
+	bool Remote = 3;
+	uint32 DLC = 4;
+	bytes Data = 5;
+	uint32 Channel = 6;
+	uint32 Timestamp = 7;
+	bool Direction = 8;
+	repeated CanErrorRecord Canerror = 9; 
+}
+
+message CanErrorRecord{
+	uint32 Errortype = 1;
+	uint32 Errorcount = 2;
+}

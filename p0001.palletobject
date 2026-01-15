@@ -1,0 +1,88 @@
+{
+ "name": "palletobject",
+ "desc": "cGFsbGV0b2JqZWN0",
+ "isDisplay": true,
+ "isEnabled": true,
+ "deviceParams": [
+  {
+   "key": "basic",
+   "desc": "QmFzaWMgcGFyYW1ldGVycw==",
+   "type": "arrayParam",
+   "arrayParam": {
+    "params": [
+     {
+      "key": "rec_sensor_id",
+      "type": "int32",
+      "unit": "",
+      "desc": "cmVjX3NlbnNvcl9pZA==",
+      "cloneEnable": false,
+      "int32Value": -1,
+      "int32Maxvalue": 99,
+      "int32Minvalue": -1
+     },
+     {
+      "key": "obs_area_min_height",
+      "type": "double",
+      "unit": "m",
+      "desc": "b2JzX2FyZWFfbWluX2hlaWdodA==",
+      "cloneEnable": false,
+      "doubleValue": 0.5,
+      "doubleMaxvalue": 99,
+      "doubleMinvalue": -99
+     },
+     {
+      "key": "obs_area_max_height",
+      "type": "double",
+      "unit": "m",
+      "desc": "b2JzX2FyZWFfbWF4X2hlaWdodA==",
+      "cloneEnable": false,
+      "doubleValue": 2,
+      "doubleMaxvalue": 99,
+      "doubleMinvalue": -99
+     },
+     {
+      "key": "obs_area_length",
+      "type": "double",
+      "unit": "m",
+      "desc": "b2JzX2FyZWFfbGVuZ3Ro",
+      "cloneEnable": false,
+      "doubleValue": 0.5,
+      "doubleMaxvalue": 99,
+      "doubleMinvalue": -99
+     },
+     {
+      "key": "obs_area_width",
+      "type": "double",
+      "unit": "m",
+      "desc": "b2JzX2FyZWFfd2lkdGg=",
+      "cloneEnable": false,
+      "doubleValue": 0.5,
+      "doubleMaxvalue": 99,
+      "doubleMinvalue": -99
+     },
+     {
+      "key": "pallet_width",
+      "type": "double",
+      "unit": "m",
+      "desc": "U2hlbGYgd2lkdGg=",
+      "cloneEnable": false,
+      "doubleValue": 1.1,
+      "doubleMaxvalue": 99,
+      "doubleMinvalue": 0
+     },
+     {
+      "key": "pallet_length",
+      "type": "double",
+      "unit": "m",
+      "desc": "U2hlbGYgbGVuZ3Ro",
+      "cloneEnable": false,
+      "doubleValue": 1.3,
+      "doubleMaxvalue": 99,
+      "doubleMinvalue": 0
+     }
+    ]
+   },
+   "cloneEnable": false
+  }
+ ]
+}

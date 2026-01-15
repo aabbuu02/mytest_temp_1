@@ -1,0 +1,19 @@
+syntax = "proto3";
+package rbk.protocol;
+import "message_header.proto";
+import "message_motorinfos.proto";
+
+message Message_Odometer {
+	Message_Header header = 1;
+	uint32 cycle 	= 2;	// cnt
+    double x 		= 3;	// m
+    double y 		= 4;	// m
+    float angle 	= 5;	// rad
+	bool is_stop = 6; 
+	float vel_x   = 7; // m/s
+	float vel_y   = 8; // m/s
+	float vel_rotate = 9; // rad/s
+	bool detect_skid = 10;
+	repeated Message_MotorInfo motor_info = 11;
+	bool follow_err = 12;//has motor following error(s)
+}
